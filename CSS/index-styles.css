@@ -1,0 +1,281 @@
+@font-face {
+	font-family: "Maison Neue Bold";
+	src: url("../fonts/Maison Neue/MaisonNeue-Bold.otf");
+}
+
+@font-face {
+	font-family: "Maison Neue Book";
+	src: url("../fonts/Maison Neue/MaisonNeue-Book.otf");
+}
+
+body {
+	margin: 0px;
+	padding: 0px;
+}
+
+.grid-container {
+	display: grid;
+	grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto;
+}
+
+/* INICIO HEADER STYLES */
+header {
+	grid-column: 1 / 13;
+}
+
+#header-logo-container {
+	grid-column:  1 / 5;
+	background-color: black;
+	grid-row: 1 / 2;
+	text-align: left;
+}
+
+#header-logo {
+	width: 125px;
+	padding-left: 100px;
+	padding-top: 20px;
+	position: absolute;
+}
+
+#nav-container {
+	grid-column:  5 / 9;
+	background-color: #000;
+	grid-row: 1 / 2;
+	padding-top: 40px;
+}
+
+#nav-menu-list {
+	text-align: center;
+}
+
+.nav-menu-item {
+	display: inline-block;
+	text-decoration: none;
+	text-align: center;
+	padding-left: 5px;
+	padding-right: 5px;
+	font-family: "Maison Neue Book";
+	font-size: 20px;
+	color: #fff;
+}
+
+a:link {
+	text-decoration: none;
+	color: white;
+}
+
+a:visited {
+	text-decoration: none;
+	color: white;
+}
+
+.nav-menu-item:hover {
+	text-decoration: none;
+	color: rgb(255, 211, 0);
+}
+
+.current {
+	color: #fff;
+	border-bottom: 1px solid rgb(255, 211, 0);
+}
+
+#session-container {
+	grid-column:  9 / 13;
+	grid-row: 1 / 2;
+	background-color: black;
+	padding-right: 100px;
+	text-align: right;
+	z-index: 0;
+	margin-top: -40px;
+}
+
+#login-container {
+	color: #fff;
+	font-family: "Maison Neue Book";
+	font-size: 20px;
+	background-color: #000;
+	border: 0px;
+}
+
+span .login-user {
+	color: rgb(255, 211, 0);
+	font-family: "Maison Neue Book";
+	font-size: 20px;
+}
+
+.login-access {
+	color: #fff;
+	font-family: "Maison Neue Book";
+	font-size: 20px;
+}
+
+.login-access:hover {
+	color: rgb(255, 211, 0);
+	font-family: "Maison Neue Book";
+	font-size: 20px;
+}
+
+/* FIN HEADER STYLES */
+
+/* INICIO MAIN CONTENT STYLES */
+
+#main-logo-container {
+	grid-column:  1 / 13;
+	grid-row:  2 / 3;
+	background-color: #000;
+	text-align: center;
+}
+
+#main-logo {
+	width: 50%;
+	padding: 125px;
+}
+
+/* FIN MAIN CONTENT STYLES */
+
+/* INICIO FORM STYLES */
+
+#main-login-form-container {
+	grid-column: 1 / 13;
+	background-color: #000;
+	text-align: center;
+	padding-bottom: 15px;
+}
+
+#username {
+	width: 40%;
+	height: 50px;
+	padding:  5px;
+	text-align: center;
+	background-color: #000;
+	color: #fff;
+	border: 2px solid rgb(255, 211, 0);
+	margin:  5px;
+	font-family: "Maison Neue Book";
+	font-size: 20px;
+	border-radius: 50px;
+}
+
+#password {
+	width: 40%;
+	height: 50px;
+	padding:  5px;
+	text-align: center;
+	background-color: #000;
+	color: #fff;
+	border: 2px solid rgb(255, 211, 0);
+	margin:  5px;
+	font-family: "Maison Neue Book";
+	font-size: 20px;
+	border-radius: 50px;
+}
+
+#send-info-button {
+	width: 40.5%;
+	height: 60px;
+	padding:  5px;
+	text-align: center;
+	background-color: #000;
+	color: #fff;
+	border: 2px solid rgb(255, 211, 0);
+	margin:  5px;
+	font-family: "Maison Neue Book";
+	font-size: 20px;
+	border-radius: 50px;
+}
+
+#username:hover {
+	width: 40%;
+	height: 50px;
+	padding:  5px;
+	text-align: center;
+	background-color: #000;
+	color: #fff;
+	border: 2px solid #fff;
+	margin:  5px;
+	font-family: "Maison Neue Book";
+	font-size: 20px;
+	border-radius: 50px;
+}
+
+#username:hover {
+	outline: none;
+}
+
+#password:hover {
+	width: 40%;
+	height: 50px;
+	padding:  5px;
+	text-align: center;
+	background-color: #000;
+	color: #fff;
+	border: 2px solid #fff;
+	margin:  5px;
+	font-family: "Maison Neue Book";
+	font-size: 20px;
+	border-radius: 50px;
+}
+
+#password:hover {
+	outline: none;
+}
+
+#send-info-button:hover {
+	width: 40.5%;
+	height: 60px;
+	padding:  5px;
+	text-align: center;
+	background-color: rgb(255, 211, 0);
+	color: #000;
+	border: 2px solid rgb(255, 211, 0);
+	margin:  5px;
+	font-family: "Maison Neue Book";
+	font-size: 20px;
+	border-radius: 50px;
+}
+
+.errorLog {
+	color: red;
+	padding-top: 50px;
+	font-family: "Maison Neue Book";
+	font-size: 25px;
+}
+
+#register-question-container {
+	grid-column: 1/13;
+	background-color: #000;
+	text-align: center;
+	padding-bottom: 15px;
+}
+
+#register-question {
+	color: #fff;
+	font-family: "Maison Neue Book";
+	font-size: 15px;
+}
+
+#register-question:hover {
+	color: #fff;
+	font-family: "Maison Neue Book";
+	font-size: 15px;
+	text-decoration: underline;
+}
+
+
+
+/* FIN FORM STYLES */
+
+/* INICIO FOOTER STYLES */
+
+#footer-container {
+	grid-column: 1/13;
+	background-color: #000;
+	text-align: center;
+	padding-bottom: 25px;
+}
+
+#footer-logo {
+	width: 125px;
+}
+
+/* FIN FOOTER STYLES */
