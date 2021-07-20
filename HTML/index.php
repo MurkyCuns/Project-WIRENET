@@ -11,6 +11,17 @@
 
 ?>
 
+<?php
+
+	if (isset($_SESSION['userLogged'])) {
+		if ($_SESSION['userLogged'] == 1) {
+			header("Location: ../HTML/tables.php", TRUE, 301);
+			exit();
+		}
+	}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -83,7 +94,11 @@
 
 								$_SESSION['username'] = $row->username;
 
-								header("Location: ../HTML/about.php", TRUE, 301);
+								$userLogged = 1;
+
+								$_SESSION['userLogged'] = $userLogged;
+
+								header("Location: ../HTML/tables.php", TRUE, 301);
 								exit();
 							}
 						}

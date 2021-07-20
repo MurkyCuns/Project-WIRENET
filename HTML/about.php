@@ -48,7 +48,7 @@
 					} else {
 						echo "<nav>
 								<div id='login-container'>
-								<span class='login-access'><a class='login-access' href='../HTML/index.php'>Iniciar Sesión</a></span>
+								<span class='login-access'><a class='login-access' href='#main-login-form-container'>Iniciar Sesión</a></span>
 								</div>
 							</nav>";
 					}

@@ -11,7 +11,6 @@
 body {
 	margin: 0px;
 	padding: 0px;
-	background-color: #000;
 }
 
 .grid-container {
@@ -118,163 +117,95 @@ span .login-user {
 
 /* FIN HEADER STYLES */
 
-.hr-container {
-	grid-column: 1/13;
-}
-
-.delimiter {
-	width: 95%;
-	color: rgb(255, 211, 0);
-}
-
-#project-name-container {
-	grid-column: 1 / 7;
-	background-color: #000;
-	text-align: left;
-	padding-top: 100px;
-	padding-left: 125px;
-}
-
-#project-name {
-	color: #fff;
-	font-family: "Maison Neue Bold";
-	font-size: 100px;
-}
-
-#project-info-container {
-	grid-column: 7 / 13;
-	background-color: #000;
-	text-align: right;
-	padding-top: 100px;
-	padding-left: 150px;
-	padding-right: 125px;
-	padding-bottom: 100px;
-}
-
-#project-info {
-	color: #fff;
-	font-family: "Maison Neue Book";
-	font-size: 50px;
-}
-
-#slogan-container {
+#main-container {
 	grid-column: 1 / 13;
 	background-color: #000;
 	text-align: center;
 }
 
-#slogan {
+#main-quote {
 	color: #fff;
 	font-family: "Maison Neue Bold";
 	font-size: 200px;
+	margin: 0px;
+	padding-top: 150px;
+	padding-bottom: 50px;
 }
 
-#made4left-container {
-	grid-column: 1 / 7;
+#table-question-container {
 	background-color: #000;
-	padding-top: 200px;
+	grid-column:  1 / 5;
+	color: #fff;
 	padding-left: 125px;
-	text-decoration: none;
-	padding-bottom: 100px;
+	padding-bottom: 75px;
 }
 
-#made4title {
-	font-family: "Maison Neue Bold";
-	font-size: 100px;
-	color: #fff;
-}
-
-.made4left-list-item {
-	color: #fff;
-	text-align: right;
-	padding-right: 60px;
+#table-question {
+	color: rgb(255, 211, 0);
 	font-family: "Maison Neue Book";
-	font-size: 35px;
-	padding-bottom: 50px;
+	font-size: 50px;
 }
 
-#made4left-list {
-	list-style-type: none;
-}
-
-#made4right-container {
-	grid-column: 7 / 13;
-	background-color: #000;
-	padding-top: 300px;
-	text-decoration: none;
-	padding-bottom: 100px;
-}
-
-#made4right-list {
-	list-style-type: none;
-}
-
-.made4right-list-item {
+.table-option-quote {
+	padding-left: 5px;
 	color: #fff;
 	font-family: "Maison Neue Book";
-	font-size: 35px;
-	padding-bottom: 50px;
+	font-size: 25px;
 }
 
-.vl {
-  border-left: 2px solid rgb(255, 211, 0);
-  height: 900px;
-  left: 50%;
-  margin-left: -2px;
-  position: absolute;
-}
-
-#members-title-container{
-	grid-column: 1/13;
+.table-options {
+	color: #fff;
 	background-color: #000;
+	border: 1px solid rgb(255, 211, 0);
+	height: 25px;
+	width: 25px;
+}
+
+#sharing-question-container {
+	background-color: #000;
+	grid-column:  5 / 13;
+	color: #fff;
+	padding-left: 125px;
 	text-align: center;
+	padding-right: 125px;
 }
 
-#members-title {
-	color: #fff;
-	font-family: "Maison Neue Bold";
-	font-size: 200px;
+#sharing-question {
+	color: rgb(255, 211, 0);
+	font-family: "Maison Neue Book";
+	font-size: 50px;
 }
 
-#members-photo-container {
-	grid-column: 1/7;
+.radio {
+	width: 25px;
+	height: 25px;
+}
+
+#send-info-container {
 	background-color: #000;
-	text-align: right;
-	padding-right: 25px;
-	padding-bottom: 250px;
+	grid-column: 1 / 13;
+	text-align: center;
+	padding-bottom: 150px;
 }
 
-#members-photo {
-	width: 65%;
-	border-radius: 75px;
+#send-info-button {
+	width: 85%;
+	height: 100px;
+	font-family: "Maison Neue Book";
+	font-size: 25px;
+	background-color: #000;
+	color: #fff;
 	border: 2px solid rgb(255, 211, 0);
+	border-radius: 50px;
 }
 
-#members-info-container {
-	grid-column: 7 / 13;
-	background-color: #000;
-	padding-bottom: 250px;
-}
-
-#members-info {
-	color: #fff;
+#send-info-button:hover {
+	width: 85%;
+	height: 100px;
 	font-family: "Maison Neue Book";
-	font-size: 30px;
-	padding-left: 25px;
-	padding-right: 300px;
+	font-size: 25px;
+	background-color: rgb(255, 211, 0);
+	color: #000;
+	border: 2px solid rgb(255, 211, 0);
+	border-radius: 50px;
 }
-
-/* INICIO FOOTER STYLES */
-
-#footer-container {
-	grid-column: 1/13;
-	background-color: #000;
-	text-align: center;
-	padding-bottom: 25px;
-}
-
-#footer-logo {
-	width: 125px;
-}
-
-/* FIN FOOTER STYLES */

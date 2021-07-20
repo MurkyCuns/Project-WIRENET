@@ -11,7 +11,7 @@
 body {
 	margin: 0px;
 	padding: 0px;
-	background-color: #000;
+	background-color: #000	;
 }
 
 .grid-container {
@@ -119,149 +119,126 @@ span .login-user {
 /* FIN HEADER STYLES */
 
 .hr-container {
-	grid-column: 1/13;
+	grid-column: 1 / 13;
+	padding-top: 100px;
+	padding-bottom: 50px;
 }
 
 .delimiter {
 	width: 95%;
-	color: rgb(255, 211, 0);
-}
-
-#project-name-container {
-	grid-column: 1 / 7;
-	background-color: #000;
-	text-align: left;
-	padding-top: 100px;
-	padding-left: 125px;
-}
-
-#project-name {
 	color: #fff;
-	font-family: "Maison Neue Bold";
-	font-size: 100px;
 }
 
-#project-info-container {
-	grid-column: 7 / 13;
-	background-color: #000;
-	text-align: right;
-	padding-top: 100px;
-	padding-left: 150px;
-	padding-right: 125px;
-	padding-bottom: 100px;
-}
-
-#project-info {
-	color: #fff;
-	font-family: "Maison Neue Book";
-	font-size: 50px;
-}
-
-#slogan-container {
-	grid-column: 1 / 13;
-	background-color: #000;
-	text-align: center;
-}
-
-#slogan {
-	color: #fff;
-	font-family: "Maison Neue Bold";
-	font-size: 200px;
-}
-
-#made4left-container {
-	grid-column: 1 / 7;
-	background-color: #000;
+#main-container {
 	padding-top: 200px;
+	grid-column: 1 / 13;
+}
+
+.form-input-quote {
+	color: #fff;
+	font-family: "Maison Neue Bold";
+	font-size: 150px;
 	padding-left: 125px;
-	text-decoration: none;
-	padding-bottom: 100px;
 }
 
-#made4title {
+.form-input {
+	background-color: #000;
+	padding-left: 50px;
+	color: #fff;
+	width: 50%;
+	height: 100px;
+	border: 1px solid rgb(255, 211, 0);
+	border-radius: 50px;
+	margin: 10px;
+	margin-left: 0px;
 	font-family: "Maison Neue Bold";
-	font-size: 100px;
-	color: #fff;
+	font-size: 50px;
+	margin-left: 125px;
 }
 
-.made4left-list-item {
-	color: #fff;
-	text-align: right;
-	padding-right: 60px;
-	font-family: "Maison Neue Book";
-	font-size: 35px;
-	padding-bottom: 50px;
+.form-input:focus {
+	outline: none;
+	border: 1px solid #fff;
+	margin-left: 125px;
 }
 
-#made4left-list {
-	list-style-type: none;
-}
-
-#made4right-container {
-	grid-column: 7 / 13;
+.form-input-col {
 	background-color: #000;
-	padding-top: 300px;
-	text-decoration: none;
-	padding-bottom: 100px;
-}
-
-#made4right-list {
-	list-style-type: none;
-}
-
-.made4right-list-item {
+	padding-left: 50px;
 	color: #fff;
-	font-family: "Maison Neue Book";
-	font-size: 35px;
-	padding-bottom: 50px;
+	width: 50%;
+	height: 100px;
+	border: 1px solid rgb(255, 211, 0);
+	border-radius: 50px;
+	margin: 10px;
+	margin-left: 0px;
+	font-family: "Maison Neue Bold";
+	font-size: 50px;
+	margin-left: 125px;
 }
 
-.vl {
-  border-left: 2px solid rgb(255, 211, 0);
-  height: 900px;
-  left: 50%;
-  margin-left: -2px;
-  position: absolute;
+.form-input-col:focus {
+	outline: none;
+	border: 1px solid #fff;
+	margin-left: 125px;
 }
 
-#members-title-container{
-	grid-column: 1/13;
+#send-cols-button {
+	margin-top: 100px;
+	width: 25%;
+	margin-right: 125px;
 	background-color: #000;
+	color: #fff;
+	border: 1px solid rgb(255, 211, 0);
+	border-radius: 50px;
+	height: 100px;
+	font-family: "Maison Neue Book";
+	font-size: 25px;
+	margin-left: 125px;
 	text-align: center;
+	grid-column: 6 / 13;
 }
 
-#members-title {
-	color: #fff;
-	font-family: "Maison Neue Bold";
-	font-size: 200px;
-}
-
-#members-photo-container {
-	grid-column: 1/7;
-	background-color: #000;
-	text-align: right;
-	padding-right: 25px;
-	padding-bottom: 250px;
-}
-
-#members-photo {
-	width: 65%;
-	border-radius: 75px;
-	border: 2px solid rgb(255, 211, 0);
-}
-
-#members-info-container {
-	grid-column: 7 / 13;
-	background-color: #000;
-	padding-bottom: 250px;
-}
-
-#members-info {
-	color: #fff;
+#send-cols-button:hover {
+	margin-top: 100px;
+	width: 25%;
+	margin-right: 125px;
+	background-color: rgb(255, 211, 0);
+	color: #000;
+	border: 1px solid rgb(255, 211, 0);
+	border-radius: 50px;
+	height: 100px;
 	font-family: "Maison Neue Book";
-	font-size: 30px;
-	padding-left: 25px;
-	padding-right: 300px;
+	font-size: 25px;
+	margin-left: 125px;
+	grid-column: 6 / 13;
+}
+
+#send-info-button {
+	width: 85%;
+	background-color: #000;
+	color: #fff;
+	border: 1px solid rgb(255, 211, 0);
+	border-radius: 50px;
+	height: 100px;
+	font-family: "Maison Neue Book";
+	font-size: 25px;
+	margin-left: 125px;
+	text-align: center;
+	grid-column: 6 / 13;
+}
+
+#send-info-button:hover {
+	width: 85%;
+	background-color: rgb(255, 211, 0);
+	color: #000;
+	border: 1px solid rgb(255, 211, 0);
+	border-radius: 50px;
+	height: 100px;
+	font-family: "Maison Neue Book";
+	font-size: 25px;
+	margin-left: 125px;
+	grid-column: 6 / 13;
 }
 
 /* INICIO FOOTER STYLES */
@@ -271,6 +248,7 @@ span .login-user {
 	background-color: #000;
 	text-align: center;
 	padding-bottom: 25px;
+	margin-top: 100px;
 }
 
 #footer-logo {

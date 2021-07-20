@@ -23,6 +23,7 @@ body {
 }
 
 /* INICIO HEADER STYLES */
+
 header {
 	grid-column: 1 / 13;
 }
@@ -120,6 +121,16 @@ span .login-user {
 }
 
 /* FIN HEADER STYLES */
+
+.hr-container {
+	grid-column: 1/13;
+	background-color: #000;
+}
+
+.delimiter {
+	width: 95%;
+	color: rgb(255, 211, 0);
+}
 
 #info-container {
 	grid-column: 1 / 7;
