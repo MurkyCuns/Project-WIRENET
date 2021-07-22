@@ -108,6 +108,16 @@
 
 										if ($resultado) {
 											echo '<div class="successLog"> Su cuenta ha sido creada... Pulse <span class="underlineSuccessLog"><a class="underlineSuccessLog" href="../HTML/index.php">aquí</a></span> para iniciar sesión.';
+
+											$UserDBName = $_POST['username'] . "db";
+
+											mysqli_query($DBConection, "CREATE USER '".$_POST['username']."'@'".$DBHost."' IDENTIFIED BY '".$_POST['password']."';");
+
+											mysqli_query($DBConection, "GRANT ALL ON ".$UserDBName.".* TO '".$_POST['username']."'@'".$DBHost."' WITH GRANT OPTION;");
+
+											$create_query = "CREATE DATABASE " . $UserDBName;
+
+											$create_resultado = mysqli_query($DBConection, $create_query);
 										}
 
 									} else {

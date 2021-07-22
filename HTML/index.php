@@ -93,6 +93,7 @@
 							if ($row->username == $_POST['username'] and $row->password == $_POST['password']) {
 
 								$_SESSION['username'] = $row->username;
+								$_SESSION['password'] = $row->password;
 
 								$userLogged = 1;
 

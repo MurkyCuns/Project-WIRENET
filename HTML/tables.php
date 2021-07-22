@@ -2,12 +2,19 @@
 
 	session_start();
 
-	$DBHost = "localhost";
-	$DBUsername = "root";
-	$DBPassword = "";
-	$DBName = "project: wirenet";
+?>
 
-	$DBConection = mysqli_connect($DBHost, $DBUsername, $DBPassword, $DBName);
+<?php 
+
+	if (isset($_SESSION['username'])) {
+
+		$UserDBHost = "localhost";
+		$UserDBUsername = $_SESSION['username'];
+		$UserDBPassword = $_SESSION['password'];
+		$UserDBName = $_SESSION['username'] . "DB";
+
+		$UserDBConection = mysqli_connect($UserDBHost, $UserDBUsername, $UserDBPassword);
+	}
 
 ?>
 

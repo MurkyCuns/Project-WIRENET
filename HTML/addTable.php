@@ -637,6 +637,12 @@
 								$tableCol1 varchar(255)
 								)");
 
+						if ($resultado) {
+							echo "<span class='result-alert'>La tabla ".$tableTitle." ha sido creada correctamente!</span>";
+						} else {
+							echo "<span class='result-alert'>La tabla ".$tableTitle." no ha podido crearse correctamente. Rellene todos los campos para continuar.</span>";
+						}
+
 					}
   
 				}
@@ -655,6 +661,12 @@
 								$tableCol1 varchar(255),
 								$tableCol2 varchar(255)
 								)");
+
+						if ($resultado) {
+							echo "<span class='result-alert'>La tabla ".$tableTitle." ha sido creada correctamente!</span>";
+						} else {
+							echo "<span class='result-alert'>La tabla ".$tableTitle." no ha podido crearse correctamente. Rellene todos los campos para continuar.</span>";
+						}
 								 
 					}
   
@@ -676,6 +688,12 @@
 								$tableCol2 varchar(255),
 								$tableCol3 varchar(255)
 								)");
+
+						if ($resultado) {
+							echo "<span class='result-alert'>La tabla ".$tableTitle." ha sido creada correctamente!</span>";
+						} else {
+							echo "<span class='result-alert'>La tabla ".$tableTitle." no ha podido crearse correctamente. Rellene todos los campos para continuar.</span>";
+						}
 								 
 					}
   
@@ -699,6 +717,12 @@
 								$tableCol3 varchar(255),
 								$tableCol4 varchar(255)
 								)");
+
+						if ($resultado) {
+							echo "<span class='result-alert'>La tabla ".$tableTitle." ha sido creada correctamente!</span>";
+						} else {
+							echo "<span class='result-alert'>La tabla ".$tableTitle." no ha podido crearse correctamente. Rellene todos los campos para continuar.</span>";
+						}
 								 
 					}
   
@@ -724,6 +748,12 @@
 								$tableCol4 varchar(255),
 								$tableCol5 varchar(255)
 								)");
+
+						if ($resultado) {
+							echo "<span class='result-alert'>La tabla ".$tableTitle." ha sido creada correctamente!</span>";
+						} else {
+							echo "<span class='result-alert'>La tabla ".$tableTitle." no ha podido crearse correctamente. Rellene todos los campos para continuar.</span>";
+						}
 								 
 					}
   
@@ -751,6 +781,12 @@
 								$tableCol5 varchar(255),
 								$tableCol6 varchar(255)
 								)");
+
+						if ($resultado) {
+							echo "<span class='result-alert'>La tabla ".$tableTitle." ha sido creada correctamente!</span>";
+						} else {
+							echo "<span class='result-alert'>La tabla ".$tableTitle." no ha podido crearse correctamente. Rellene todos los campos para continuar.</span>";
+						}
 								 
 					}
   
@@ -780,6 +816,12 @@
 								$tableCol6 varchar(255),
 								$tableCol7 varchar(255)
 								)");
+
+						if ($resultado) {
+							echo "<span class='result-alert'>La tabla ".$tableTitle." ha sido creada correctamente!</span>";
+						} else {
+							echo "<span class='result-alert'>La tabla ".$tableTitle." no ha podido crearse correctamente. Rellene todos los campos para continuar.</span>";
+						}
 								 
 					}
   
@@ -811,6 +853,12 @@
 								$tableCol7 varchar(255),
 								$tableCol8 varchar(255)
 								)");
+
+						if ($resultado) {
+							echo "<span class='result-alert'>La tabla ".$tableTitle." ha sido creada correctamente!</span>";
+						} else {
+							echo "<span class='result-alert'>La tabla ".$tableTitle." no ha podido crearse correctamente. Rellene todos los campos para continuar.</span>";
+						}
 								 
 					}
   
@@ -844,6 +892,12 @@
 								$tableCol8 varchar(255),
 								$tableCol9 varchar(255)
 								)");
+
+						if ($resultado) {
+							echo "<span class='result-alert'>La tabla ".$tableTitle." ha sido creada correctamente!</span>";
+						} else {
+							echo "<span class='result-alert'>La tabla ".$tableTitle." no ha podido crearse correctamente. Rellene todos los campos para continuar.</span>";
+						}
 								 
 					}
   
@@ -879,6 +933,12 @@
 								$tableCol9 varchar(255),
 								$tableCol10 varchar(255)
 								)");
+
+						if ($resultado) {
+							echo "<span class='result-alert'>La tabla ".$tableTitle." ha sido creada correctamente!</span>";
+						} else {
+							echo "<span class='result-alert'>La tabla ".$tableTitle." no ha podido crearse correctamente. Rellene todos los campos para continuar.</span>";
+						}
 								 
 					}
   

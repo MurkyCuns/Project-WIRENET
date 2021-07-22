@@ -241,6 +241,13 @@ span .login-user {
 	grid-column: 6 / 13;
 }
 
+span .result-alert {
+	text-align: center;
+	color: #fff;
+	font-family: "Maison Neue Book";
+	font-size: 25px;
+}
+
 /* INICIO FOOTER STYLES */
 
 #footer-container {
