@@ -131,6 +131,14 @@ span .login-user {
 	padding-left: 125px;
 }
 
+#new-table-option-container-2 {
+	grid-column: 1 / 13;
+	background-color: #000;
+	padding-top: 200px;
+	padding-bottom: 200px;
+	padding-left: 125px;
+}
+
 .table-option-quote {
 	color: #fff;
 	font-family: "Maison Neue Bold";

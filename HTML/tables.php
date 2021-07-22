@@ -2,6 +2,7 @@
 
 	session_start();
 
+
 ?>
 
 <?php 
@@ -62,7 +63,27 @@
 			</div>
 		</header>
 		<div id="main-container">
-			<div id="new-table-option-container">
+
+			<?php 
+
+				$select_query = "SHOW TABLES FROM " .$UserDBName;
+				$select_result = mysqli_query($UserDBConection, $select_query);
+				echo "<div id='new-table-option-container'>";
+					while ($fila = mysqli_fetch_row($select_result)) {
+	    				for ($i=0; $i < count($fila); $i++) { 
+	    					echo "<a href='../HTML/addTable.php' class='table-option-quote'>".ucfirst($fila[$i])."</a>";
+	    					echo "<br>";
+	    				}
+					}
+				echo "</div>"
+
+				// SIGUE AQUÍ, HAY ALGUN PROBLEMA CA CONSULTA. SOLO QUERO NOMBRES DE TABLAS MEU.
+				// AHORA PONTE A XOGAR A ALGO OU PETACHE A PUTA CABEZA
+				// PD: ACORDATE DE TRATALO COMO UN ARRAY SECUENCIAL OU MATOCHE, E CONTROLA A OPTIMIZACIÓN OU MATOCHE TAM
+
+			?>
+
+			<div id="new-table-option-container-2">
 				<a href="../HTML/addTable.php" class="table-option-quote">Añadir nueva</a>
 				<br>
 			</div>

@@ -33,7 +33,6 @@
 						<li class="nav-menu-item"><a class="current" class="nav-menu-item" href="../HTML/index.php">Inicio</a></li>
 						<li class="nav-menu-item"><a class="nav-menu-item" href="../HTML/about.php">Sobre Nosotros</a></li>
 						<li class="nav-menu-item"><a class="nav-menu-item" href="../HTML/contact.php">Contacto</a></li>
-						<li class="nav-menu-item"><a class="nav-menu-item" href="../HTML/signup.php">Registrate</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -50,6 +49,7 @@
 								<div id='login-container'>
 								<span class='login-access'><a class='login-access' href='../HTML/index.php'>Iniciar Sesión</a></span>
 								</div>
+								<span class='login-access'><a class='login-access' href='../HTML/signup.php''>Regístrate</a></span>
 							</nav>";
 					}
 				?>

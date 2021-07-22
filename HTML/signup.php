@@ -33,7 +33,6 @@
 						<li class="nav-menu-item"><a class="nav-menu-item" href="../HTML/index.php">Inicio</a></li>
 						<li class="nav-menu-item"><a class="nav-menu-item" href="../HTML/about.php">Sobre Nosotros</a></li>
 						<li class="nav-menu-item"><a class="nav-menu-item" href="../HTML/contact.php">Contacto</a></li>
-						<li class="nav-menu-item"><a class="current" class="nav-menu-item" href="../HTML/signup.php">Registrate</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -49,6 +48,8 @@
 						echo "<nav>
 								<div id='login-container'>
 								<span class='login-access'><a class='login-access' href='../HTML/index.php''>Iniciar Sesión</a></span>
+								<br>
+								<span class='login-access'><a class='login-access' href='../HTML/signup.php''>Regístrate</a></span>
 								</div>
 							</nav>";
 					}
@@ -106,10 +107,11 @@
 										$insert_query = "INSERT INTO users (name, surname, username, email, password, phone, birthdate) VALUES ('$name', '$surname', '$username', '$email', '$password', '$phone', '$birthdate')";
 										$resultado = mysqli_query($DBConection, $insert_query);
 
+										$UserDBName = $_POST['username'] . "db";
+										$_SESSION['UserDBName'] = $UserDBName;
+
 										if ($resultado) {
 											echo '<div class="successLog"> Su cuenta ha sido creada... Pulse <span class="underlineSuccessLog"><a class="underlineSuccessLog" href="../HTML/index.php">aquí</a></span> para iniciar sesión.';
-
-											$UserDBName = $_POST['username'] . "db";
 
 											mysqli_query($DBConection, "CREATE USER '".$_POST['username']."'@'".$DBHost."' IDENTIFIED BY '".$_POST['password']."';");
 

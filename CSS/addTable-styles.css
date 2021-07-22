@@ -241,11 +241,31 @@ span .login-user {
 	grid-column: 6 / 13;
 }
 
-span .result-alert {
-	text-align: center;
+div #result-container {
+	grid-column: 1 / 13;
 	color: #fff;
 	font-family: "Maison Neue Book";
 	font-size: 25px;
+	text-align: center;
+	padding: 25px;
+}
+
+div p .result-alert {
+	grid-column: 1 / 13;
+	color: #fff;
+	font-family: "Maison Neue Book";
+	font-size: 25px;
+	text-align: center;
+	padding: 25px;
+}
+
+div p .bad-result-alert {
+	grid-column: 1 / 13;
+	color: red;
+	font-family: "Maison Neue Book";
+	font-size: 25px;
+	text-align: center;
+	padding: 25px;
 }
 
 /* INICIO FOOTER STYLES */
