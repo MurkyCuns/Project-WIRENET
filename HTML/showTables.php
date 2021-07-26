@@ -79,35 +79,21 @@
 
 				$tableNames_result = mysqli_query($UserDBConection, $tableNames_query);
 
-				// FILAS
-
-				//if ($select_result) {
-				//	while ($row = mysqli_fetch_row($select_result)) {
-	    		//		for ($i=0; $i < count($row); $i++) { 
-	    		//			echo $row[$i];
-	    		//			echo "<br>";
-	    		//		}
-	    		//	}
-				//} else {
-				//	printf("Error: %s\n", mysqli_error($UserDBConection)//);
-				//}
-
-				// COLUMNAS
-
 				if ($tableNames_result) {
-					echo "<table>";
-					echo "<tr>";
+					echo "<div id='tableName-container'>".$_SESSION['tableRow']."</div>";
+					echo "<table id='main-table'>";
+					echo "<tr class='column-row'>";
 					while ($columnArray = mysqli_fetch_assoc($tableNames_result)) {
 	    				foreach ($columnArray as $columnName) { 
-	    					echo "<th>".$columnName."</th>";
+	    					echo "<th class='column-field'>".$columnName."</th>";
 	    							  
 	    				}
 	    			}
 	    			echo "</tr>";
 	    				while ($rowArray = mysqli_fetch_assoc($select_result)) {
-	    					echo "<tr>";
+	    					echo "<tr class='row-row'>";
 	    					foreach ($rowArray as $rowValue) {
-	    						echo "<td>".$rowValue."</td>";
+	    						echo "<td class='row-field'>".$rowValue."</td>";
 	    					}
 	    					echo "</tr>";
 
@@ -116,6 +102,77 @@
 	    			echo "</table>";
 				} else {
 					printf("Error: %s\n", mysqli_error($UserDBConection));
+				}
+
+			?>
+			<form action="../HTML/showTables.php" method="POST" id="button-form">
+				<input type="submit" name="newData" value="Introduzca filas" class="button">
+				<br><br>
+				<input type="submit" name="backTables" value="Volver atrás" class="button">
+			</form>
+
+			<?php 
+
+				if (isset($_POST['newData'])) {
+					echo "<form action='../HTML/showTables.php' method='GET' id='newDataForm'>";
+
+					mysqli_select_db($UserDBConection, $UserDBName);
+					$select_query = "SELECT * FROM ". $_SESSION['tableRow'];
+					$tableNames_query = "
+
+						SELECT column_name
+						FROM information_schema.columns
+						WHERE  table_name = '".$_SESSION['tableRow']."'
+						AND table_schema = '".$UserDBName."'"
+
+					;
+
+					$select_result = mysqli_query($UserDBConection, $select_query);
+
+					$tableNames_result = mysqli_query($UserDBConection, $tableNames_query);
+
+					if ($tableNames_result) {
+						echo "<div class='hr-container'>
+								<hr class='delimiter'>
+							  </div>";
+						echo "<table id='newDataTable'>";
+						echo "<tr class='column-row'>";
+						while ($columnArray = mysqli_fetch_assoc($tableNames_result)) {
+			    			foreach ($columnArray as $columnName) { 
+			    				echo "<th class='column-field'>".$columnName."</th>";
+			    							  
+			    			}
+			    		}
+			    		echo "</tr>";
+
+			    		$countColumns_query = "
+
+						SELECT count(*)
+						FROM information_schema.columns
+						WHERE  table_name = '".$_SESSION['tableRow']."'
+						AND table_schema = '".$UserDBName."'"
+
+						;
+
+						
+
+			    		for ($i=0; $i < 1; $i++) { 
+			    			echo "<tr>";
+			    			$countColumns_result = mysqli_query($UserDBConection, $countColumns_query);
+							$fila = $countColumns_result->fetch_row();
+                			
+			    			for ($j=0; $j < $fila[0]; $j++) {
+			    				echo "<td><input type='text' name='newData".$j."' class='newDataInput'></td>";
+			    			}
+			    			echo "</tr>";
+			    		}
+			    				
+			    		echo "</table>";
+					} else {
+						printf("Error: %s\n", mysqli_error($UserDBConection));
+					}
+					echo "<input type='submit' name='sendNewData' value='Introducir Datos' class='button'>";
+					echo "</form>";
 				}
 
 			?>
