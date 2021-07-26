@@ -7,7 +7,7 @@
 	$DBPassword = "";
 	$DBName = "project: wirenet";
 
-	$DBConection = mysqli_connect($DBHost, $DBUsername, $DBPassword, $DBName);
+	$DBConection = mysqli_connect($DBHost, $DBUsername, $DBPassword, $DBName);	
 
 ?>
 

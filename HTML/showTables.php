@@ -2,7 +2,6 @@
 
 	session_start();
 
-
 ?>
 
 <?php 
@@ -26,7 +25,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="Brais Cuns Varela (MurkyCuns)">
 	<meta name="description" content="Murky Studios Database">
-	<link rel="stylesheet" href="../CSS/tables-styles.css">
+	<link rel="stylesheet" href="../CSS/showTables-styles.css">
 	<title>Inicio - Project: WIRENET</title>
 </head>
 <body>
@@ -63,37 +62,64 @@
 			</div>
 		</header>
 		<div id="main-container">
+			<?php
 
-			<?php 
+				mysqli_select_db($UserDBConection, $UserDBName);
+				$select_query = "SELECT * FROM ". $_SESSION['tableRow'];
+				$tableNames_query = "
 
-				$select_query = "SHOW TABLES FROM " .$UserDBName;
+					SELECT column_name
+					FROM information_schema.columns
+					WHERE  table_name = '".$_SESSION['tableRow']."'
+					AND table_schema = '".$UserDBName."'"
+
+				;
+
 				$select_result = mysqli_query($UserDBConection, $select_query);
-				echo "<form action='tables.php' method='GET'>";
-				echo "<div id='new-table-option-container'>";
-					while ($fila = mysqli_fetch_row($select_result)) {
-	    				for ($i=0; $i < count($fila); $i++) { 
-	    					echo "<input type='submit' class='table-option-quote' name='".$fila[$i]."' value='".ucfirst($fila[$i])."'>";
-	    					echo "<br>";
-	    					if (isset($_GET[$fila[$i]])) {
-	    						$_SESSION['tableRow'] = $_GET[$fila[$i]];
-	    						header("Location: ../HTML/showTables.php", TRUE, 301);
-								exit();
-	    						// A VER NECESITAS PASALO A OUTRA PAXINA ROLLO showTables.php sabes e con un dolar sesión pasas o nombre da tabla da que necesitas pillar info, esa info sacala en esa puta paxina que variará segun a tabla que elexiras na previa, eres gilipollas ou que che pasa???????????????????????????????????????????????
-	    					}
+
+				$tableNames_result = mysqli_query($UserDBConection, $tableNames_query);
+
+				// FILAS
+
+				//if ($select_result) {
+				//	while ($row = mysqli_fetch_row($select_result)) {
+	    		//		for ($i=0; $i < count($row); $i++) { 
+	    		//			echo $row[$i];
+	    		//			echo "<br>";
+	    		//		}
+	    		//	}
+				//} else {
+				//	printf("Error: %s\n", mysqli_error($UserDBConection)//);
+				//}
+
+				// COLUMNAS
+
+				if ($tableNames_result) {
+					echo "<table>";
+					echo "<tr>";
+					while ($columnArray = mysqli_fetch_assoc($tableNames_result)) {
+	    				foreach ($columnArray as $columnName) { 
+	    					echo "<th>".$columnName."</th>";
+	    							  
 	    				}
-	    					
 	    			}
-				echo "</div>";
-				echo "</form>";
+	    			echo "</tr>";
+	    				while ($rowArray = mysqli_fetch_assoc($select_result)) {
+	    					echo "<tr>";
+	    					foreach ($rowArray as $rowValue) {
+	    						echo "<td>".$rowValue."</td>";
+	    					}
+	    					echo "</tr>";
+
+	    				}
+	    				
+	    			echo "</table>";
+				} else {
+					printf("Error: %s\n", mysqli_error($UserDBConection));
+				}
 
 			?>
-
-			<div id="tableOutput-container"></div>
-
-			<div id="new-table-option-container-2">
-				<a href="../HTML/addTable.php" class="table-option-quote">Añadir nueva</a>
-				<br>
-			</div>
 		</div>
 	</div>
 </body>
+</html>
