@@ -220,4 +220,18 @@ span .login-user {
 	padding-bottom: 50px;
 }
 
+/* INICIO FOOTER STYLES */
+
+#footer-container {
+	grid-column: 1/13;
+	background-color: #000;
+	text-align: center;
+	padding-bottom: 25px;
+}
+
+#footer-logo {
+	width: 125px;
+}
+
+/* FIN FOOTER STYLES */
 

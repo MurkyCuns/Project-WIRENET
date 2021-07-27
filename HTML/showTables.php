@@ -111,10 +111,15 @@
 				<input type="submit" name="backTables" value="Volver atrás" class="button">
 			</form>
 
-			<?php 
+			<?php
+
+				if (isset($_POST['backTables'])) {
+					header("Location: ../HTML/tables.php", TRUE, 301);
+					exit(); 	
+				} 
 
 				if (isset($_POST['newData'])) {
-					echo "<form action='../HTML/showTables.php' method='GET' id='newDataForm'>";
+					echo "<form action='../HTML/showTables.php' method='POST' id='newDataForm'>";
 
 					mysqli_select_db($UserDBConection, $UserDBName);
 					$select_query = "SELECT * FROM ". $_SESSION['tableRow'];
@@ -173,10 +178,60 @@
 					}
 					echo "<input type='submit' name='sendNewData' value='Introducir Datos' class='button'>";
 					echo "</form>";
-				}
+
+					}
+
+					if (isset($_POST['sendNewData'])) {
+
+						$countColumns_query = "
+
+						SELECT count(*)
+						FROM information_schema.columns
+						WHERE  table_name = '".$_SESSION['tableRow']."'
+						AND table_schema = '".$UserDBName."'"
+
+						;
+
+			    		$countColumns_result = mysqli_query($UserDBConection, $countColumns_query);
+						$fila = $countColumns_result->fetch_row();
+
+						$newDataArray = '';
+
+			    		for ($j=0; $j < $fila[0]; $j++) {
+			    			echo $_POST['newData'.$j];
+			    			$newDataArray .= "('{$_POST['newData'.$j]}'),";
+
+						}
+
+						$newDataArray = rtrim($newDataArray, ',');
+
+						if ($newDataArray) {
+							$insert_query = "INSERT INTO " .$_SESSION['tableRow']. " VALUES (" .$newDataArray. ");";
+							$insert_result = mysqli_query($UserDBConection, $insert_query);
+
+							if ($insert_result) {
+								header("Location: ../HTML/showTables.php", TRUE, 301);
+								exit();
+
+							} else {
+								printf("Error: %s\n", mysqli_error($UserDBConection));
+							}
+						} else {
+							echo "non existe array";
+						}
+
+					}
+
+				
 
 			?>
 		</div>
+		<footer id="footer-container"
+		>
+			<div id="footer-logo-container">
+				<img src="../images/index/header-logo.png" alt="" id="footer-logo">
+			</div>
+		</footer>
 	</div>
 </body>
 </html>
