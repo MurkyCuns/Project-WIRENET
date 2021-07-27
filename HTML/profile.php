@@ -72,6 +72,15 @@
 							$name = $row->name;
 							$surname = $row->surname;
 							$email = $row->email;
+							$phone = $row->phone;
+							$birthdate = $row->birthdate;
+
+							$_SESSION['username'] = $username;
+							$_SESSION['name'] = $name;
+							$_SESSION['surname'] = $surname;
+							$_SESSION['email'] = $email;
+							$_SESSION['phone'] = $phone;
+							$_SESSION['birthdate'] = $birthdate;
 						}
 					}
 
@@ -88,13 +97,20 @@
 			</div>
 			<div id="config-container">
 				<div id="edit-button">
-					Editar perfil
+					<form action="../HTML/profile.php" method="POST">
+						<input type="submit" name="editProfile" id="edit-button" value="Editar perfil">
+					</form>
 				</div>
 				<div id="logout-button">
 					<form action="../HTML/profile.php" method="POST">
 						<input type="submit" name="button" id="logout-button" value="Cerrar sesión">
 					</form>
-					<?php 
+					<?php
+						if (isset($_POST['editProfile'])) {
+							header("Location: ../HTML/editProfile.php", TRUE, 301);
+								exit();
+						}
+
 						if (isset($_POST['button'])) {
 							session_destroy();
 							header("Location: ../HTML/index.php", TRUE, 301);

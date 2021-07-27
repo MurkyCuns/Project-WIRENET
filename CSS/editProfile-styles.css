@@ -131,94 +131,158 @@ span .login-user {
 	border: 2px solid rgb(255, 211, 0);
 }
 
-#username {
-	color: #000;
-	font-family: "Maison Neue Bold";
-	-webkit-text-stroke: 1.5px rgb(255, 211, 0);
-	font-size: 75px;
-	padding-top: 50px;
-}
-
-#name {
-	color: #fff;
-	font-family: "Maison Neue Book";
-	font-size: 20px;
-	padding-top: 25px;
-	
-}
-
-#email {
-	color: #fff;
-	font-family: "Maison Neue Book";
-	font-size: 20px;
-	padding-top: 10px;
+#profile-picture-container {
 	padding-bottom: 50px;
-	
 }
 
-#follow-button {
-	width: 25%;
-	height: 100px;
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 1px solid rgb(255, 211, 0);
+    border-radius: 50px;
+    width: 15%;
+    display: inline-block;
+    padding: 20px;
+    cursor: pointer;
+    color: #fff;
+    margin-top: 25px;
+    font-family: "Maison Neue Book";
+    font-size: 20px;
+}
+
+.custom-file-upload:hover {
+	background-color: rgb(255, 211, 0);
+    border: 1px solid rgb(255, 211, 0);
+    border-radius: 50px;
+    width: 15%;
+    display: inline-block;
+    padding: 20px;
+    cursor: pointer;
+    color: #000;
+    margin-top: 25px;
+    font-family: "Maison Neue Book";
+    font-size: 20px;
+}
+
+td {
+	padding: 10px;
+}
+
+.spacing {
+   padding-top: 50px;
+}
+
+#dataTable {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+#passwordTable {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.input-quote {
+	font-family: "Maison Neue Bold";
+	font-size: 75px;
+	color: #fff;
+	padding-right: 50px;
+}
+
+.inputNewData {
 	background-color: #000;
+	color: #fff;
 	border: 1px solid rgb(255, 211, 0);
 	border-radius: 50px;
+	font-family: "Maison Neue Book";
+	font-size: 25px;
+	padding: 10px;
+	padding-left: 15px;
+	padding-right: 0;
+	height: 50px;
+	width: 100%;
+	text-align: center;
+
+}
+
+#sendNewDataButton {
+	background-color: #000;
 	color: #fff;
 	font-family: "Maison Neue Book";
 	font-size: 25px;
-}
-
-#follow-button:hover {
-	width: 25%;
-	height: 100px;
-	background-color: rgb(255, 211, 0);
 	border: 1px solid rgb(255, 211, 0);
 	border-radius: 50px;
+	width: 35%;
+	padding: 25px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	margin: 10px;
+}
+
+#sendNewDataButton:hover {
+	background-color: rgb(255, 211, 0);
 	color: #000;
 	font-family: "Maison Neue Book";
 	font-size: 25px;
+	border: 1px solid rgb(255, 211, 0);
+	border-radius: 50px;
+	width: 35%;
+	padding: 25px;
+	margin-top: 50px;
+	margin: 10px;
 }
 
-#edit-button {
-	color: gray;
-	font-family: "Maison Neue Book";
-	font-size: 20px;
-	padding-top: 25px;
+#backToProfile {
 	background-color: #000;
-	border: 0px;
-	width: 100%;
-}
-
-#logout-button {
-	color: gray;
+	color: #fff;
 	font-family: "Maison Neue Book";
-	font-size: 20px;
-	padding-top: 5px;
-	padding-bottom: 150px;
-	background-color: #000;
-	border: 0px;
-	width: 100%;
+	font-size: 25px;
+	border: 1px solid rgb(255, 211, 0);
+	border-radius: 50px;
+	width: 35%;
+	padding: 25px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	margin: 10px;
 }
 
-#edit-button:hover {
+#backToProfile:hover {
+	background-color: rgb(255, 211, 0);
+	color: #000;
+	font-family: "Maison Neue Book";
+	font-size: 25px;
+	border: 1px solid rgb(255, 211, 0);
+	border-radius: 50px;
+	width: 35%;
+	padding: 25px;
+	margin-top: 50px;
+	margin: 10px;
+}
+
+.successLog {
 	color: #fff;
 	font-family: "Maison Neue Book";
 	font-size: 20px;
 	padding-top: 25px;
-	background-color: #000;
-	border: 0px;
-	width: 100%;
+	padding-bottom: 25px;
 }
 
-#logout-button:hover {
-	color: #fff;
+.errorLog {
+	color: red;
 	font-family: "Maison Neue Book";
 	font-size: 20px;
-	padding-top: 5px;
-	padding-bottom: 150px;
-	background-color: #000;
-	border: 0px;
-	width: 100%;
+	padding-top: 25px;
+	padding-bottom: 25px;
 }
+
 
 /* INICIO FOOTER STYLES */
 
