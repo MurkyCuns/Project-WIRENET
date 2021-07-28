@@ -57,7 +57,7 @@
 		</header>
 		<div id="main-container">
 			<div id="profile-picture-container">
-				<img src="../images/about/members.jpg" alt="" id="profile-picture">
+				<img src="../images/profile/user-picture.png" alt="" id="profile-picture">
 			</div>
 
 			<div id="info-container" class="c-section">

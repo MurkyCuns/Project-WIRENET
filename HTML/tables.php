@@ -40,7 +40,7 @@
 					<ul id="nav-menu-list">
 						<li class="nav-menu-item"><a class="current" class="nav-menu-item" href="../HTML/index.php">Tablas Actuales</a></li>
 						<li class="nav-menu-item"><a class="nav-menu-item" href="../HTML/addTable.php">Añadir Tabla</a></li>
-						<li class="nav-menu-item"><a class="nav-menu-item" href="../HTML/contact.php">Eliminar Tabla</a></li>
+						<li class="nav-menu-item"><a class="nav-menu-item" href="../HTML/deleteTable.php">Eliminar Tabla</a></li>
 					</ul>
 				</nav>
 			</div>
