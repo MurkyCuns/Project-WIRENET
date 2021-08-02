@@ -200,9 +200,9 @@ span .login-user {
 	padding: 25px;
 	font-family: "Maison Neue Book";
 	font-size: 25px;
-	color: #000;
-	background-color: rgb(255, 211, 0);
-	border: 1px solid rgb(255, 211, 0);
+	color: #fff;
+	background-color: #1DB954;
+	border: 1px solid #1DB954;
 	border-radius: 50px;
 }
 

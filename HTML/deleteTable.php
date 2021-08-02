@@ -1,7 +1,7 @@
 <?php
 
 	session_start();
-	
+
 ?>
 
 <?php 
@@ -111,7 +111,7 @@
 						}
 
 						if (isset($_POST['denyButton'])) {
-
+							$_SESSION['display'] = 1;
 					 		header("Location: ../HTML/tables.php", TRUE, 301);
 							exit();
 						} 	

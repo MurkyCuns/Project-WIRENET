@@ -11,6 +11,7 @@
 body {
 	margin: 0px;
 	padding: 0px;
+	background-color: #000;
 }
 
 .grid-container {
@@ -117,6 +118,68 @@ span .login-user {
 
 /* FIN HEADER STYLES */
 
+#main-container {
+	grid-column: 1 / 13;
+	background-color: #000;
+	padding: 150px;
+	padding-bottom: 0px;
+	text-align: center;
+}
+
+#register-quote {
+	font-family: "Maison Neue Bold";
+	font-size: 250px;
+	color: #fff;
+	padding-bottom: 50px;
+}
+
+td {
+	padding: 10px;
+}
+
+.spacing {
+   padding-top: 50px;
+}
+
+#dataTable {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+#passwordTable {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.input-quote {
+	font-family: "Maison Neue Bold";
+	font-size: 75px;
+	color: #fff;
+	padding-right: 50px;
+}
+
+.inputNewData {
+	background-color: #000;
+	color: #fff;
+	border: 1px solid rgb(255, 211, 0);
+	border-radius: 50px;
+	font-family: "Maison Neue Book";
+	font-size: 25px;
+	padding: 10px;
+	padding-left: 15px;
+	padding-right: 0;
+	height: 50px;
+	width: 100%;
+	text-align: center;
+
+}
+
 #main-logo-container {
 	grid-column: 1 / 5;
 	background-color: #000;
@@ -168,26 +231,30 @@ span .login-user {
 	outline: none;
 }
 
+
+
 #button {
-	width: 50%;
+	width: 70%;
 	padding: 25px;
 	background-color: #000;
 	color: #fff;
 	font-family: "Maison Neue Book";
 	font-size: 25px;
-	border: 2px solid rgb(255, 211, 0);
+	border: 1px solid rgb(255, 211, 0);
 	border-radius: 50px;
+	margin-bottom: 50px;
 }
 
 #button:hover {
-	width: 50%;
+	width: 70%;
 	padding: 25px;
 	background-color: rgb(255, 211, 0);
 	color: #000;
 	font-family: "Maison Neue Book";
 	font-size: 25px;
-	border: 2px solid rgb(255, 211, 0);
+	border: 1px solid rgb(255, 211, 0);
 	border-radius: 50px;
+	margin-bottom: 50px;
 }
 
 #form-title {
@@ -205,14 +272,14 @@ span .login-user {
 
 .errorLog {
 	color: red;
-	padding-top: 50px;
+	padding-bottom: 50px;
 	font-family: "Maison Neue Book";
 	font-size: 25px;
 }
 
 .successLog {
 	color: #fff;
-	padding-top: 50px;
+	padding-bottom: 50px;
 	font-family: "Maison Neue Book";
 	font-size: 25px;
 	padding-bottom: 50px;

@@ -953,10 +953,11 @@
 									<p class='bad-result-alert'>La tabla ".$tableTitle." no ha podido crearse correctamente. Compruebe que la tabla no exista previamente y que haya introducido todos los campos.</p>
 									</div>";
 							}
+							}
 									 
 						}
 	  
-					}
+					
 
 					if (isset($_POST['send-info-button-2'])) {
 						$contadorPOST = count($_POST)-1;

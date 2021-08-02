@@ -56,32 +56,45 @@
 				?>
 			</div>
 		</header>
-			<div id="main-logo-container">
-				<img id="main-logo" src="../images/index/Murky Studios Database.png" alt="">
-			</div>
-			<div id="main-form-container">
-				<p id="form-title">
-					Regístrate
-				</p>
-				<form id="main-form" action="../HTML/signup.php" method="POST">
-					<input type="text" class="input-box" name="name" placeholder="Nombre">
-					<br>
-					<input type="text" class="input-box" name="surname" placeholder="Apellidos">
-					<br>
-					<input type="text" class="input-box" name="username" placeholder="Nombre de Usuario">
-					<br>
-					<input type="password" class="input-box" name="password" placeholder="Contraseña">
-					<br>
-					<input type="password" class="input-box" name="reppassword" placeholder="Repetir Contraseña">
-					<br>
-					<input type="text" class="input-box" name="email" placeholder="Correo Electrónico">
-					<br>
-					<input type="text" class="input-box" name="phone" placeholder="Número de Teléfono">
-					<br>
-					<input type="text" class="input-box" name="birthdate" placeholder="Fecha de Nacimiento">
-					<br>
-					<br>
-					<input type="submit" id="button" name="button" value="Regístrate">
+			<div id="main-container">
+				<div id="register-quote">Regístrate</div>
+				<form action="../HTML/signup.php" method="POST" id="data-form">
+					<table id="dataTable">
+						<tr>
+							<td><span class="input-quote">Nombre</span></td>
+							<td><?php echo "<input type='text' name='name' class='inputNewData'>"; ?></td>
+						</tr>
+						<tr>
+							<td><span class="input-quote">Apellidos</span></td>
+							<td><?php echo "<input type='text' name='surname' class='inputNewData'>"; ?></td>
+						</tr>
+						<tr>
+							<td><span class="input-quote">Nombre de Usuario</span></td>
+							<td><?php echo "<input type='text' name='username' class='inputNewData'>"; ?></td>
+						</tr>
+						<tr>
+							<td><span class="input-quote">Correo Electrónico</span></td>
+							<td><?php echo "<input type='text' name='email' class='inputNewData'>"; ?></td>
+						</tr>
+						<tr>
+							<td><span class="input-quote">Contraseña</span></td>
+							<td><?php echo "<input type='text' name='password' class='inputNewData'>"; ?></td>
+						</tr>
+						<tr>
+							<td><span class="input-quote">Repetir contraseña</span></td>
+							<td><?php echo "<input type='text' name='reppassword' class='inputNewData'>"; ?></td>
+						</tr>
+						<tr>
+							<td><span class="input-quote">Número de teléfono</span></td>
+							<td><?php echo "<input type='text' name='phone' class='inputNewData'>"; ?></td>
+						</tr>
+						<tr>
+							<td><span class="input-quote">Fecha de Nacimiento</span></td>
+							<td><?php echo "<input type='text' name='birthdate' class='inputNewData'>"; ?></td>
+						</tr>
+					</table>
+					
+					<input type="submit" name="button" value="Registrarse" id="button">
 				</form>
 				<?php 
 					if(isset($_POST['button'])) {
