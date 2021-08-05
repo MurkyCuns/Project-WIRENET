@@ -18,6 +18,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">	
 	<meta name="author" content="Brais Cuns Varela (MurkyCuns)">
 	<meta name="description" content="Murky Studios Database">
 	<link rel="stylesheet" href="../CSS/addTable-styles.css">
@@ -649,6 +650,8 @@
 									<div id='result-container'>
 									<p class='bad-result-alert'>La tabla ".$tableTitle." no ha podido crearse correctamente. Compruebe que la tabla no exista previamente y que haya introducido todos los campos.</p>
 									</div>";
+
+								printf(mysqli_error($DBConection));
 							}
 						}
 	  

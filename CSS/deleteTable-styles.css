@@ -139,8 +139,9 @@ span .login-user {
 	grid-column: 1 / 13;
 	background-color: #000;
 	padding-left: 125px;
-	padding-bottom: 100px;
+	padding-bottom: 3/00px;
 	padding-top: 100px;
+
 }
 
 #new-table-option-container-2 {
@@ -161,7 +162,6 @@ span .login-user {
 .table-option-quote:hover {
 	color: #000;
 	-webkit-text-stroke: 1.5px red;
-	border-bottom: 1px solid red;
 	font-family: "Maison Neue Bold";
 	font-size: 150px;
 	background-color: #000;
@@ -236,3 +236,17 @@ span .login-user {
 	text-align: center;
 }
 
+/* INICIO FOOTER STYLES */
+
+#footer-container {
+	grid-column: 1/13;
+	background-color: #000;
+	text-align: center;
+	padding-bottom: 25px;
+}
+
+#footer-logo {
+	width: 125px;
+}
+
+/* FIN FOOTER STYLES */

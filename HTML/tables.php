@@ -78,7 +78,6 @@
 	    						$_SESSION['tableRow'] = $_GET[$fila[$i]];
 	    						header("Location: ../HTML/showTables.php", TRUE, 301);
 								exit();
-	    						// A VER NECESITAS PASALO A OUTRA PAXINA ROLLO showTables.php sabes e con un dolar sesión pasas o nombre da tabla da que necesitas pillar info, esa info sacala en esa puta paxina que variará segun a tabla que elexiras na previa, eres gilipollas ou que che pasa???????????????????????????????????????????????
 	    					}
 	    				}
 	    					
@@ -95,5 +94,10 @@
 				<br>
 			</div>
 		</div>
+		<footer id="footer-container">
+			<div id="footer-logo-container">
+				<img src="../images/index/header-logo.png" alt="" id="footer-logo">
+			</div>
+		</footer>
 	</div>
 </body>

@@ -124,6 +124,11 @@
 				?>
 
 		</div>
+		<footer id="footer-container">
+			<div id="footer-logo-container">
+				<img src="../images/index/header-logo.png" alt="" id="footer-logo">
+			</div>
+		</footer>
 	</div>
 </body>
 </html>

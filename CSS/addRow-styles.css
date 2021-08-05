@@ -133,7 +133,6 @@ span .login-user {
 	color: #fff;
 	padding-top: 100px;
 	text-align: center;
-	padding-bottom: 100px;
 }
 
 #tableName-container {
@@ -168,7 +167,7 @@ span .login-user {
 }
 
 #button-form {
-	padding-bottom: 20px;
+	padding-bottom: 50px;
 }
 
 .button {
@@ -218,7 +217,7 @@ span .login-user {
 }
 
 #newDataForm {
-	padding-bottom: 50px;
+	padding-bottom: 200px;
 }
 
 /* INICIO FOOTER STYLES */
@@ -235,4 +234,3 @@ span .login-user {
 }
 
 /* FIN FOOTER STYLES */
-
