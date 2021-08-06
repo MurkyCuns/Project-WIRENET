@@ -15,14 +15,21 @@
 		$UserDBName = $_SESSION['username'] . "DB";
 
 		$UserDBConection = mysqli_connect($UserDBHost, $UserDBUsername, $UserDBPassword);
+		
+		$UserDBConection->character_set_name();
+		
+		if (!$UserDBConection->set_charset('utf8')) {
+    		printf("Error cargando el conjunto de caracteres utf8: %s\n", $UserDBConection->error);
+    		exit;
+		}
 	}
 
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="e">
 <head>
-	<meta charset="UTF-8">
+	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="Brais Cuns Varela (MurkyCuns)">
 	<meta name="description" content="Murky Studios Database">

@@ -9,12 +9,19 @@
 		$DBName = $_SESSION['UserDBName'];
 
 		$DBConection = mysqli_connect($DBHost, $DBUsername, $DBPassword, $DBName);
+
+		$DBConection->character_set_name();
+		
+		if (!$DBConection->set_charset('utf8')) {
+    		printf("Error cargando el conjunto de caracteres utf8: %s\n", $DBConection->error);
+    		exit;
+		}
 	}
 
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -634,7 +641,7 @@
 							$tableTitle = $_POST['tableTitle'];
 							$tableID = $_POST['tableID'];
 							$tableCol1 = $_POST['tableCol1'];
-
+							mysqli_select_db($DBConection, $DBName);
 							$resultado = mysqli_query($DBConection, "CREATE TABLE `{$tableTitle}`(
 									$tableID varchar(255),
 									$tableCol1 varchar(255)

@@ -14,6 +14,13 @@
 		$UserDBName = $_SESSION['username'] . "DB";
 
 		$UserDBConection = mysqli_connect($UserDBHost, $UserDBUsername, $UserDBPassword);
+		
+		$UserDBConection->character_set_name();
+		
+		if (!$UserDBConection->set_charset('utf8')) {
+    		printf("Error cargando el conjunto de caracteres utf8: %s\n", $UserDBConection->error);
+    		exit;
+		}
 	}
 
 ?>
