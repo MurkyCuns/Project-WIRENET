@@ -14,6 +14,13 @@
 		$UserDBName = $_SESSION['username'] . "DB";
 
 		$UserDBConection = mysqli_connect($UserDBHost, $UserDBUsername, $UserDBPassword);
+
+		$UserDBConection->character_set_name();
+		
+		if (!$UserDBConection->set_charset('utf8')) {
+    		printf("Error cargando el conjunto de caracteres utf8: %s\n", $UserDBConection->error);
+    		exit;
+		}
 	}
 
 ?>
@@ -85,9 +92,14 @@
 					if ($tableNames_result) {
 						echo "<table id='newDataTable'>";
 						echo "<tr class='column-row'>";
+						$firstElement = TRUE;
 						while ($columnArray = mysqli_fetch_assoc($tableNames_result)) {
-			    			foreach ($columnArray as $columnName) { 
-			    				echo "<th class='column-field'>".$columnName."</th>";
+			    			foreach ($columnArray as $columnName) {
+			    				if ($firstElement) {
+			    				 	$firstElement = FALSE;
+			    				} else {
+			    					echo "<th class='column-field'>".$columnName."</th>";
+			    				}
 			    							  
 			    			}
 			    		}
@@ -109,7 +121,7 @@
 			    			$countColumns_result = mysqli_query($UserDBConection, $countColumns_query);
 							$fila = $countColumns_result->fetch_row();
                 			
-			    			for ($j=0; $j < $fila[0]; $j++) {
+			    			for ($j=1; $j < $fila[0]; $j++) {
 			    				echo "<td><input type='text' name='newData".$j."' class='newDataInput'></td>";
 			    			}
 			    			echo "</tr>";

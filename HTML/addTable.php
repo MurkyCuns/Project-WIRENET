@@ -88,10 +88,6 @@
 								<br>
 								<input type='text' name='tableTitle' class='form-input' placeholder='...'>
 								<br>
-								<span class='form-input-quote'>Identificador</span>
-								<br>
-								<input type='text' name='tableID' class='form-input' placeholder='...'>
-								<br>
 
 								<span class='form-input-quote'>Columna Nº 1</span>
 								<br>
@@ -124,10 +120,6 @@
 								<span class='form-input-quote'>Nombre</span>
 								<br>
 								<input type='text' name='tableTitle' class='form-input' placeholder='...'>
-								<br>
-								<span class='form-input-quote'>Identificador</span>
-								<br>
-								<input type='text' name='tableID' class='form-input' placeholder='...'>
 								<br>
 
 								<span class='form-input-quote'>Columna Nº 1</span>
@@ -166,10 +158,6 @@
 								<span class='form-input-quote'>Nombre</span>
 								<br>
 								<input type='text' name='tableTitle' class='form-input' placeholder='...'>
-								<br>
-								<span class='form-input-quote'>Identificador</span>
-								<br>
-								<input type='text' name='tableID' class='form-input' placeholder='...'>
 								<br>
 
 								<span class='form-input-quote'>Columna Nº 1</span>
@@ -212,10 +200,6 @@
 								<span class='form-input-quote'>Nombre</span>
 								<br>
 								<input type='text' name='tableTitle' class='form-input' placeholder='...'>
-								<br>
-								<span class='form-input-quote'>Identificador</span>
-								<br>
-								<input type='text' name='tableID' class='form-input' placeholder='...'>
 								<br>
 
 								<span class='form-input-quote'>Columna Nº 1</span>
@@ -262,10 +246,6 @@
 								<span class='form-input-quote'>Nombre</span>
 								<br>
 								<input type='text' name='tableTitle' class='form-input' placeholder='...'>
-								<br>
-								<span class='form-input-quote'>Identificador</span>
-								<br>
-								<input type='text' name='tableID' class='form-input' placeholder='...'>
 								<br>
 
 								<span class='form-input-quote'>Columna Nº 1</span>
@@ -316,10 +296,6 @@
 								<span class='form-input-quote'>Nombre</span>
 								<br>
 								<input type='text' name='tableTitle' class='form-input' placeholder='...'>
-								<br>
-								<span class='form-input-quote'>Identificador</span>
-								<br>
-								<input type='text' name='tableID' class='form-input' placeholder='...'>
 								<br>
 
 								<span class='form-input-quote'>Columna Nº 1</span>
@@ -374,10 +350,6 @@
 								<span class='form-input-quote'>Nombre</span>
 								<br>
 								<input type='text' name='tableTitle' class='form-input' placeholder='...'>
-								<br>
-								<span class='form-input-quote'>Identificador</span>
-								<br>
-								<input type='text' name='tableID' class='form-input' placeholder='...'>
 								<br>
 
 								<span class='form-input-quote'>Columna Nº 1</span>
@@ -436,10 +408,6 @@
 								<span class='form-input-quote'>Nombre</span>
 								<br>
 								<input type='text' name='tableTitle' class='form-input' placeholder='...'>
-								<br>
-								<span class='form-input-quote'>Identificador</span>
-								<br>
-								<input type='text' name='tableID' class='form-input' placeholder='...'>
 								<br>
 
 								<span class='form-input-quote'>Columna Nº 1</span>
@@ -502,10 +470,6 @@
 								<span class='form-input-quote'>Nombre</span>
 								<br>
 								<input type='text' name='tableTitle' class='form-input' placeholder='...'>
-								<br>
-								<span class='form-input-quote'>Identificador</span>
-								<br>
-								<input type='text' name='tableID' class='form-input' placeholder='...'>
 								<br>
 
 								<span class='form-input-quote'>Columna Nº 1</span>
@@ -573,10 +537,6 @@
 								<br>
 								<input type='text' name='tableTitle' class='form-input' placeholder='...'>
 								<br>
-								<span class='form-input-quote'>Identificador</span>
-								<br>
-								<input type='text' name='tableID' class='form-input' placeholder='...'>
-								<br>
 
 								<span class='form-input-quote'>Columna Nº 1</span>
 								<br>
@@ -637,14 +597,14 @@
 					if (isset($_POST['send-info-button-2'])) {
 						$contadorPOST = count($_POST)-1;
 							
-						if ($contadorPOST == 3) {
+						if ($contadorPOST == 2) {
 							$tableTitle = $_POST['tableTitle'];
-							$tableID = $_POST['tableID'];
 							$tableCol1 = $_POST['tableCol1'];
 							mysqli_select_db($DBConection, $DBName);
 							$resultado = mysqli_query($DBConection, "CREATE TABLE `{$tableTitle}`(
-									$tableID varchar(255),
-									$tableCol1 varchar(255)
+									ID int NOT NULL AUTO_INCREMENT,
+									$tableCol1 varchar(255),
+									PRIMARY KEY (ID)
 									)");
 
 							if ($resultado) {
@@ -667,16 +627,51 @@
 					if (isset($_POST['send-info-button-2'])) {
 						$contadorPOST = count($_POST)-1;
 							
-						if ($contadorPOST == 4) {
+						if ($contadorPOST == 3) {
 							$tableTitle = $_POST['tableTitle'];
 							$tableID = $_POST['tableID'];
 							$tableCol1 = $_POST['tableCol1'];
 							$tableCol2 = $_POST['tableCol2'];
 
 							$resultado = mysqli_query($DBConection, "CREATE TABLE `{$tableTitle}`(
-									$tableID varchar(255),
+									ID int NOT NULL AUTO_INCREMENT,
 									$tableCol1 varchar(255),
-									$tableCol2 varchar(255)
+									$tableCol2 varchar(255),
+									PRIMARY KEY (ID)
+									)");
+
+							if ($resultado) {
+								echo "
+									<div id='result-container'>
+									<p class='result-alert'>La tabla ".$tableTitle." ha sido creada correctamente!</p>
+									</div>";
+							} else {
+								echo "
+									<div id='result-container'>
+									<p class='bad-result-alert'>La tabla ".$tableTitle." no ha podido crearse correctamente. Compruebe que la tabla no exista previamente y que haya introducido todos los campos.</p>
+									</div>";
+							}
+									 
+						}
+	  
+					}
+
+					if (isset($_POST['send-info-button-2'])) {
+						$contadorPOST = count($_POST)-1;
+							
+						if ($contadorPOST == 4) {
+							$tableTitle = $_POST['tableTitle'];
+							$tableID = $_POST['tableID'];
+							$tableCol1 = $_POST['tableCol1'];
+							$tableCol2 = $_POST['tableCol2'];
+							$tableCol3 = $_POST['tableCol3'];
+
+							$resultado = mysqli_query($DBConection, "CREATE TABLE `{$tableTitle}`(
+									ID int NOT NULL AUTO_INCREMENT,
+									$tableCol1 varchar(255),
+									$tableCol2 varchar(255),
+									$tableCol3 varchar(255),
+									PRIMARY KEY (ID)
 									)");
 
 							if ($resultado) {
@@ -704,12 +699,15 @@
 							$tableCol1 = $_POST['tableCol1'];
 							$tableCol2 = $_POST['tableCol2'];
 							$tableCol3 = $_POST['tableCol3'];
+							$tableCol4 = $_POST['tableCol4'];
 
 							$resultado = mysqli_query($DBConection, "CREATE TABLE `{$tableTitle}`(
-									$tableID varchar(255),
+									ID int NOT NULL AUTO_INCREMENT,
 									$tableCol1 varchar(255),
 									$tableCol2 varchar(255),
-									$tableCol3 varchar(255)
+									$tableCol3 varchar(255),
+									$tableCol4 varchar(255),
+									PRIMARY KEY (ID)
 									)");
 
 							if ($resultado) {
@@ -738,13 +736,16 @@
 							$tableCol2 = $_POST['tableCol2'];
 							$tableCol3 = $_POST['tableCol3'];
 							$tableCol4 = $_POST['tableCol4'];
+							$tableCol5 = $_POST['tableCol5'];
 
 							$resultado = mysqli_query($DBConection, "CREATE TABLE `{$tableTitle}`(
-									$tableID varchar(255),
+									ID int NOT NULL AUTO_INCREMENT,
 									$tableCol1 varchar(255),
 									$tableCol2 varchar(255),
 									$tableCol3 varchar(255),
-									$tableCol4 varchar(255)
+									$tableCol4 varchar(255),
+									$tableCol5 varchar(255),
+									PRIMARY KEY (ID)
 									)");
 
 							if ($resultado) {
@@ -774,14 +775,17 @@
 							$tableCol3 = $_POST['tableCol3'];
 							$tableCol4 = $_POST['tableCol4'];
 							$tableCol5 = $_POST['tableCol5'];
+							$tableCol6 = $_POST['tableCol6'];
 
 							$resultado = mysqli_query($DBConection, "CREATE TABLE `{$tableTitle}`(
-									$tableID varchar(255),
+									ID int NOT NULL AUTO_INCREMENT,
 									$tableCol1 varchar(255),
 									$tableCol2 varchar(255),
 									$tableCol3 varchar(255),
 									$tableCol4 varchar(255),
-									$tableCol5 varchar(255)
+									$tableCol5 varchar(255),
+									$tableCol6 varchar(255),
+									PRIMARY KEY (ID)
 									)");
 
 							if ($resultado) {
@@ -812,15 +816,18 @@
 							$tableCol4 = $_POST['tableCol4'];
 							$tableCol5 = $_POST['tableCol5'];
 							$tableCol6 = $_POST['tableCol6'];
+							$tableCol7 = $_POST['tableCol7'];
 
 							$resultado = mysqli_query($DBConection, "CREATE TABLE `{$tableTitle}`(
-									$tableID varchar(255),
+									ID int NOT NULL AUTO_INCREMENT,
 									$tableCol1 varchar(255),
 									$tableCol2 varchar(255),
 									$tableCol3 varchar(255),
 									$tableCol4 varchar(255),
 									$tableCol5 varchar(255),
-									$tableCol6 varchar(255)
+									$tableCol6 varchar(255),
+									$tableCol7 varchar(255),
+									PRIMARY KEY (ID)
 									)");
 
 							if ($resultado) {
@@ -852,16 +859,19 @@
 							$tableCol5 = $_POST['tableCol5'];
 							$tableCol6 = $_POST['tableCol6'];
 							$tableCol7 = $_POST['tableCol7'];
+							$tableCol8 = $_POST['tableCol8'];
 
 							$resultado = mysqli_query($DBConection, "CREATE TABLE `{$tableTitle}`(
-									$tableID varchar(255),
+									ID int NOT NULL AUTO_INCREMENT,
 									$tableCol1 varchar(255),
 									$tableCol2 varchar(255),
 									$tableCol3 varchar(255),
 									$tableCol4 varchar(255),
 									$tableCol5 varchar(255),
 									$tableCol6 varchar(255),
-									$tableCol7 varchar(255)
+									$tableCol7 varchar(255),
+									$tableCol8 varchar(255),
+									PRIMARY KEY (ID)
 									)");
 
 							if ($resultado) {
@@ -894,53 +904,10 @@
 							$tableCol6 = $_POST['tableCol6'];
 							$tableCol7 = $_POST['tableCol7'];
 							$tableCol8 = $_POST['tableCol8'];
-
-							$resultado = mysqli_query($DBConection, "CREATE TABLE `{$tableTitle}`(
-									$tableID varchar(255),
-									$tableCol1 varchar(255),
-									$tableCol2 varchar(255),
-									$tableCol3 varchar(255),
-									$tableCol4 varchar(255),
-									$tableCol5 varchar(255),
-									$tableCol6 varchar(255),
-									$tableCol7 varchar(255),
-									$tableCol8 varchar(255)
-									)");
-
-							if ($resultado) {
-								echo "
-									<div id='result-container'>
-									<p class='result-alert'>La tabla ".$tableTitle." ha sido creada correctamente!</p>
-									</div>";
-							} else {
-								echo "
-									<div id='result-container'>
-									<p class='bad-result-alert'>La tabla ".$tableTitle." no ha podido crearse correctamente. Compruebe que la tabla no exista previamente y que haya introducido todos los campos.</p>
-									</div>";
-							}
-									 
-						}
-	  
-					}
-
-					if (isset($_POST['send-info-button-2'])) {
-						$contadorPOST = count($_POST)-1;
-							
-						if ($contadorPOST == 11) {
-							$tableTitle = $_POST['tableTitle'];
-							$tableID = $_POST['tableID'];
-							$tableCol1 = $_POST['tableCol1'];
-							$tableCol2 = $_POST['tableCol2'];
-							$tableCol3 = $_POST['tableCol3'];
-							$tableCol4 = $_POST['tableCol4'];
-							$tableCol5 = $_POST['tableCol5'];
-							$tableCol6 = $_POST['tableCol6'];
-							$tableCol7 = $_POST['tableCol7'];
-							$tableCol8 = $_POST['tableCol8'];
 							$tableCol9 = $_POST['tableCol9'];
 
 							$resultado = mysqli_query($DBConection, "CREATE TABLE `{$tableTitle}`(
-									$tableID varchar(255),
+									ID int NOT NULL AUTO_INCREMENT,
 									$tableCol1 varchar(255),
 									$tableCol2 varchar(255),
 									$tableCol3 varchar(255),
@@ -949,7 +916,8 @@
 									$tableCol6 varchar(255),
 									$tableCol7 varchar(255),
 									$tableCol8 varchar(255),
-									$tableCol9 varchar(255)
+									$tableCol9 varchar(255),
+									PRIMARY KEY (ID)
 									)");
 
 							if ($resultado) {
@@ -972,7 +940,7 @@
 					if (isset($_POST['send-info-button-2'])) {
 						$contadorPOST = count($_POST)-1;
 							
-						if ($contadorPOST == 12) {
+						if ($contadorPOST == 11) {
 							$tableTitle = $_POST['tableTitle'];
 							$tableID = $_POST['tableID'];
 							$tableCol1 = $_POST['tableCol1'];
@@ -987,7 +955,7 @@
 							$tableCol10 = $_POST['tableCol10'];
 
 							$resultado = mysqli_query($DBConection, "CREATE TABLE `{$tableTitle}`(
-									$tableID varchar(255),
+									ID int NOT NULL AUTO_INCREMENT,
 									$tableCol1 varchar(255),
 									$tableCol2 varchar(255),
 									$tableCol3 varchar(255),
@@ -997,7 +965,8 @@
 									$tableCol7 varchar(255),
 									$tableCol8 varchar(255),
 									$tableCol9 varchar(255),
-									$tableCol10 varchar(255)
+									$tableCol10 varchar(255),
+									PRIMARY KEY (ID)
 									)");
 
 							if ($resultado) {

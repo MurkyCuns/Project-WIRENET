@@ -32,7 +32,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="Brais Cuns Varela (MurkyCuns)">
 	<meta name="description" content="Murky Studios Database">
-	<link rel="stylesheet" href="../CSS/showTables-styles.css">
+	<link rel="stylesheet" href="../CSS/deleteRow-styles.css">
 	<title>Inicio - Project: WIRENET</title>
 </head>
 <body>
@@ -87,6 +87,8 @@
 
 				$tableNames_result = mysqli_query($UserDBConection, $tableNames_query);
 
+				echo "<form action='deleteRow.php' method='GET'>";
+
 				if ($tableNames_result) {
 					echo "<div id='tableName-container'>".$_SESSION['tableRow']."</div>";
 					echo "<table id='main-table'>";
@@ -101,27 +103,20 @@
 	    				while ($rowArray = mysqli_fetch_assoc($select_result)) {
 	    					echo "<tr class='row-row'>";
 	    					foreach ($rowArray as $rowValue) {
-	    						echo "<td class='row-field'>".$rowValue."</td>";
+	    						echo "<td class='row-field'><input class='row-field' type='submit' name='".$rowValue."' value='".$rowValue."'</td>";
 	    					}
 	    					echo "</tr>";
 
 	    				}
 	    				
 	    			echo "</table>";
+
+	    			echo "</form>";
 				} else {
 					printf("Error: %s\n", mysqli_error($UserDBConection));
 				}
 
 			?>
-			<form action="../HTML/addRow.php" method="POST" id="button-form">
-				<input type="submit" name="newData" value="Introduzca filas" class="button">
-			</form>
-			<form action="../HTML/deleteRow.php" method="POST" id="button-form">	
-				<input type="submit" name="deleteRow" value="Elimine filas" class="button">
-			</form>
-			<form action="../HTML/modifyRow.php" method="POST" id="button-form">		
-				<input type="submit" name="modifyRow" value="Modifique filas" class="button">
-			</form>
 
 			<form action="../HTML/tables.php" method="POST" id="button-form">		
 				<input type="submit" name="backToTables" value="Volver atrás" class="button-2">
