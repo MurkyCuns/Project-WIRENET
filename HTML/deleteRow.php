@@ -87,7 +87,7 @@
 
 				$tableNames_result = mysqli_query($UserDBConection, $tableNames_query);
 
-				echo "<form action='deleteRow.php' method='GET'>";
+				echo "<form action='deleteRow.php' method='POST'>";
 
 				if ($tableNames_result) {
 					echo "<div id='tableName-container'>".$_SESSION['tableRow']."</div>";
@@ -103,7 +103,7 @@
 	    				while ($rowArray = mysqli_fetch_assoc($select_result)) {
 	    					echo "<tr class='row-row'>";
 	    					foreach ($rowArray as $rowValue) {
-	    						echo "<td class='row-field'><input class='row-field' type='submit' name='".$rowValue."' value='".$rowValue."'</td>";
+	    						echo "<td class='row-field'>".$rowValue."</td>";
 	    					}
 	    					echo "</tr>";
 
@@ -118,11 +118,93 @@
 
 			?>
 
-			<form action="../HTML/tables.php" method="POST" id="button-form">		
-				<input type="submit" name="backToTables" value="Volver atrás" class="button-2">
-			</form>
-
 			<?php
+
+				echo $_SESSION['deleteRowDisplay'];
+
+				// $_SESSION['deleteRowDisplay'] = 1;
+
+				if (!isset($_SESSION['deleteRowDisplay'])) {
+					$_SESSION['deleteRowDisplay'] = 1;
+				}
+
+				if ($_SESSION['deleteRowDisplay'] == 1) {
+					echo "<form action='../HTML/deleteRow.php' method='POST' id='main-form-container'>
+							<div class='form-input-quote'>Indique un número de fila a eliminar:</div>
+							<br>
+							<input type='text' name='tableID' class='form-input-col' placeholder='Número de fila'>
+							<input type='submit' name='send-id-button' value='Seleccionar fila' id='send-cols-button'>
+						</form>";
+
+				}
+
+				if (isset($_POST['send-id-button'])) {
+					echo $_POST['send-id-button'];
+					$_SESSION['tableID'] = $_POST['tableID'];
+					$_SESSION['deleteRowDisplay'] = 2;
+					header("Location: ../HTML/deleteRow.php", TRUE, 301);
+					exit();
+
+				}
+
+				if ($_SESSION['deleteRowDisplay'] == 2) {
+						echo "<div class='confirmQuote'>La fila número ".$_SESSION['tableID']." contiene los siguientes campos:</div>";
+
+						$select_query = "SELECT * FROM ".$_SESSION['tableRow']." WHERE id=".$_SESSION['tableID'].";";
+						$select_result = mysqli_query($UserDBConection, $select_query);
+
+						echo "<table id='main-table'>";
+
+						while ($selectedRowArray = mysqli_fetch_assoc($select_result)) {
+	    					echo "<tr class='row-row'>";
+	    					foreach ($selectedRowArray as $rowValue) {
+	    						echo "<td class='selected-row-field'>".$rowValue."</td>";
+	    					}
+	    					echo "</tr>";
+
+	    				}
+
+	    				echo "</table>";
+
+	    				echo "<div class='confirmQuote'>Estás seguro de querer eliminarla?</div>";
+
+						echo "<form action='deleteRow.php' method='POST'>";
+
+						echo "<div id='confirmButtonContainer'>";
+							echo "<input type='submit' class='confirmButton' name='confirmButton' value='Si'>";
+							echo "<input type='submit' class='denyButton' name='denyButton' value='No'>";
+						echo "</div>";
+						echo "</form>";
+
+						if (isset($_POST['confirmButton'])) {
+							mysqli_select_db($UserDBConection, $UserDBName);
+							$delete_query = "DELETE FROM " .$_SESSION['tableRow']." WHERE id=" .$_SESSION['tableID'].";";
+							$delete_result = mysqli_query($UserDBConection, $delete_query);
+
+							$maxIncrement_query = "SELECT MAX(id) FROM " .$_SESSION['tableRow']. " ;";
+							$maxIncrement_result = mysqli_query($UserDBConection, $maxIncrement_query);
+
+							$alterIncrement_query = "ALTER TABLE id AUTO_INCREMENT = 1";
+							$alterIncrement_result = mysqli_query($UserDBConection, $alterIncrement_query);
+
+
+							if ($delete_result) {
+								echo "gud";
+							} else {
+								printf(mysqli_error($UserDBConection));
+							}
+
+							$_SESSION['deleteRowDisplay'] = 1;
+							header("Location: ../HTML/deleteRow.php", TRUE, 301);
+							exit();
+						}
+
+						if (isset($_POST['denyButton'])) {
+							$_SESSION['deleteRowDisplay'] = 1;
+							header("Location: ../HTML/deleteRow.php", TRUE, 301);
+							exit();	
+						}
+					}
 
 				if (isset($_POST['backTables'])) {
 					header("Location: ../HTML/tables.php", TRUE, 301);

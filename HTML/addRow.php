@@ -164,6 +164,7 @@
 
 						if ($newDataArray) {
 							mysqli_select_db($UserDBConection, $UserDBName);
+							
 							$insert_query = "INSERT INTO " .$_SESSION['tableRow']. " VALUES (" .$newDataArray. ");";
 							$insert_result = mysqli_query($UserDBConection, $insert_query);
 

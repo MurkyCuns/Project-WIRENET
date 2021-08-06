@@ -169,6 +169,16 @@ span .login-user {
 	border: 0px;
 }
 
+.selected-row-field {
+	color: red;
+	font-family: "Maison Neue Book";
+	font-size: 25px;
+	padding-left: 15px;
+	padding-right: 15px;
+	background-color: #000;
+	border: 0px;
+}
+
 #button-form {
 	padding-bottom: 20px;
 }
@@ -247,6 +257,155 @@ span .login-user {
 
 #newDataForm {
 	padding-bottom: 50px;
+}
+
+.form-input-quote {
+	color: #fff;
+	font-family: "Maison Neue Bold";
+	font-size: 150px;
+	padding-left: 125px;
+	padding-right: 125px;
+	text-align: left;
+}
+
+.form-input {
+	background-color: #000;
+	padding-left: 50px;
+	color: #fff;
+	width: 50%;
+	height: 100px;
+	border: 1px solid rgb(255, 211, 0);
+	border-radius: 50px;
+	margin: 10px;
+	margin-left: 0px;
+	font-family: "Maison Neue Bold";
+	font-size: 50px;
+	margin-left: 125px;
+}
+
+.form-input:focus {
+	outline: none;
+	border: 1px solid #fff;
+	margin-left: 125px;
+}
+
+.form-input-col {
+	background-color: #000;
+	padding-left: 50px;
+	color: #fff;
+	width: 50%;
+	height: 100px;
+	border: 1px solid rgb(255, 211, 0);
+	border-radius: 50px;
+	margin: 10px;
+	margin-left: 0px;
+	font-family: "Maison Neue Bold";
+	font-size: 50px;
+	margin-left: 125px;
+}
+
+.form-input-col:focus {
+	outline: none;
+	border: 1px solid #fff;
+	margin-left: 125px;
+}
+
+#send-cols-button {
+	margin-top: 100px;
+	width: 25%;
+	margin-right: 125px;
+	background-color: #000;
+	color: #fff;
+	border: 1px solid rgb(255, 211, 0);
+	border-radius: 50px;
+	height: 100px;
+	font-family: "Maison Neue Book";
+	font-size: 25px;
+	margin-left: 125px;
+	text-align: center;
+	grid-column: 6 / 13;
+}
+
+#send-cols-button:hover {
+	margin-top: 100px;
+	width: 25%;
+	margin-right: 125px;
+	background-color: rgb(255, 211, 0);
+	color: #000;
+	border: 1px solid rgb(255, 211, 0);
+	border-radius: 50px;
+	height: 100px;
+	font-family: "Maison Neue Book";
+	font-size: 25px;
+	margin-left: 125px;
+	grid-column: 6 / 13;
+}
+
+.confirmQuote {
+	text-align: left;
+	padding-left: 125px;
+	padding-right: 125px;
+	font-family: "Maison Neue Bold";
+	font-size: 125px;
+	color: #fff;
+
+}
+
+.confirmButton {
+	text-align: center;
+	width: 45%;
+	margin: 5px;
+	padding: 25px;
+	font-family: "Maison Neue Book";
+	font-size: 25px;
+	color: #fff;
+	background-color: #000;
+	border: 1px solid rgb(255, 211, 0);
+	border-radius: 50px;
+}
+
+.confirmButton:hover {
+	text-align: center;
+	width: 45%;
+	margin: 5px;
+	padding: 25px;
+	font-family: "Maison Neue Book";
+	font-size: 25px;
+	color: #fff;
+	background-color: #1DB954;
+	border: 1px solid #1DB954;
+	border-radius: 50px;
+}
+
+.denyButton {
+	text-align: center;
+	width: 45%;
+	margin: 5px;
+	padding: 25px;
+	font-family: "Maison Neue Book";
+	font-size: 25px;
+	color: #fff;
+	background-color: #000;
+	border: 1px solid rgb(255, 211, 0);
+	border-radius: 50px;
+}
+
+.denyButton:hover {
+	text-align: center;
+	width: 45%;
+	margin: 5px;
+	padding: 25px;
+	font-family: "Maison Neue Book";
+	font-size: 25px;
+	color: #fff;
+	background-color: red;
+	border: 1px solid red;
+	border-radius: 50px;
+}
+
+#confirmButtonContainer {
+	text-align: center;
+	margin-top: 50px;
 }
 
 /* INICIO FOOTER STYLES */
