@@ -92,14 +92,10 @@
 					if ($tableNames_result) {
 						echo "<table id='newDataTable'>";
 						echo "<tr class='column-row'>";
-						$firstElement = TRUE;
 						while ($columnArray = mysqli_fetch_assoc($tableNames_result)) {
 			    			foreach ($columnArray as $columnName) {
-			    				if ($firstElement) {
-			    				 	$firstElement = FALSE;
-			    				} else {
 			    					echo "<th class='column-field'>".$columnName."</th>";
-			    				}
+			    				
 			    							  
 			    			}
 			    		}
@@ -121,7 +117,7 @@
 			    			$countColumns_result = mysqli_query($UserDBConection, $countColumns_query);
 							$fila = $countColumns_result->fetch_row();
                 			
-			    			for ($j=1; $j < $fila[0]; $j++) {
+			    			for ($j=1; $j <= $fila[0]; $j++) {
 			    				echo "<td><input type='text' name='newData".$j."' class='newDataInput'></td>";
 			    			}
 			    			echo "</tr>";
@@ -154,7 +150,7 @@
 
 						$newDataArray = '';
 
-			    		for ($j=0; $j < $fila[0]; $j++) {
+			    		for ($j=1; $j <= $fila[0]; $j++) {
 			    			echo $_POST['newData'.$j];
 			    			$newDataArray .= "('{$_POST['newData'.$j]}'),";
 

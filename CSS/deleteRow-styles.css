@@ -151,10 +151,24 @@ span .login-user {
 	padding-bottom: 150px;
 }
 
+.tableID {
+	color: #000;
+	-webkit-text-stroke: 1.5px rgb(255, 211, 0);
+	font-family: "Maison Neue Bold";
+}
+
 .column-field {
 	color: rgb(255, 211, 0);
 	font-family: "Maison Neue Bold";
-	font-size: 35px;
+	font-size: 40px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.selected-column-field {
+	color: red;
+	font-family: "Maison Neue Bold";
+	font-size: 40px;
 	padding-left: 15px;
 	padding-right: 15px;
 }
@@ -169,8 +183,14 @@ span .login-user {
 	border: 0px;
 }
 
-.selected-row-field {
+.rowNumber {
 	color: red;
+	font-family: "Maison Neue Bold";
+	font-size: 125px;
+}
+
+.selected-row-field {
+	color: #fff;
 	font-family: "Maison Neue Book";
 	font-size: 25px;
 	padding-left: 15px;
@@ -345,6 +365,7 @@ span .login-user {
 	text-align: left;
 	padding-left: 125px;
 	padding-right: 125px;
+	padding-top: 100px;
 	font-family: "Maison Neue Bold";
 	font-size: 125px;
 	color: #fff;

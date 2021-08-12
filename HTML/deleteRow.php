@@ -87,40 +87,13 @@
 
 				$tableNames_result = mysqli_query($UserDBConection, $tableNames_query);
 
-				echo "<form action='deleteRow.php' method='POST'>";
-
-				if ($tableNames_result) {
-					echo "<div id='tableName-container'>".$_SESSION['tableRow']."</div>";
-					echo "<table id='main-table'>";
-					echo "<tr class='column-row'>";
-					while ($columnArray = mysqli_fetch_assoc($tableNames_result)) {
-	    				foreach ($columnArray as $columnName) { 
-	    					echo "<th class='column-field'>".$columnName."</th>";
-	    							  
-	    				}
-	    			}
-	    			echo "</tr>";
-	    				while ($rowArray = mysqli_fetch_assoc($select_result)) {
-	    					echo "<tr class='row-row'>";
-	    					foreach ($rowArray as $rowValue) {
-	    						echo "<td class='row-field'>".$rowValue."</td>";
-	    					}
-	    					echo "</tr>";
-
-	    				}
-	    				
-	    			echo "</table>";
-
-	    			echo "</form>";
-				} else {
-					printf("Error: %s\n", mysqli_error($UserDBConection));
-				}
+				
 
 			?>
 
 			<?php
 
-				echo $_SESSION['deleteRowDisplay'];
+
 
 				// $_SESSION['deleteRowDisplay'] = 1;
 
@@ -129,8 +102,54 @@
 				}
 
 				if ($_SESSION['deleteRowDisplay'] == 1) {
+					echo "<form action='deleteRow.php' method='POST'>";
+
+					if ($tableNames_result) {
+						echo "<div id='tableName-container'>".$_SESSION['tableRow']."</div>";
+						echo "<table id='main-table'>";
+						echo "<tr class='column-row'>";
+						while ($columnArray = mysqli_fetch_assoc($tableNames_result)) {
+		    				foreach ($columnArray as $columnName) { 
+		    					echo "<th class='column-field'>".$columnName."</th>";
+		    							  
+		    				}
+		    			}
+		    			echo "</tr>";
+		    				while ($rowArray = mysqli_fetch_assoc($select_result)) {
+		    					echo "<tr class='row-row'>";
+		    					foreach ($rowArray as $rowValue) {
+		    						echo "<td class='row-field'>".$rowValue."</td>";
+		    					}
+		    					echo "</tr>";
+
+		    				}
+		    				
+		    			echo "</table>";
+
+		    			echo "</form>";
+					} else {
+						printf("Error: %s\n", mysqli_error($UserDBConection));
+					}
+				}
+
+				$tableNames_query = "
+
+					SELECT column_name
+					FROM information_schema.columns
+					WHERE  table_name = '".$_SESSION['tableRow']."'
+					AND table_schema = '".$UserDBName."'"
+
+				;
+
+				$select_result = mysqli_query($UserDBConection, $select_query);
+
+				$tableNames_result = mysqli_query($UserDBConection, $tableNames_query);
+
+				$tableNames_array = mysqli_fetch_array($tableNames_result);
+
+				if ($_SESSION['deleteRowDisplay'] == 1) {
 					echo "<form action='../HTML/deleteRow.php' method='POST' id='main-form-container'>
-							<div class='form-input-quote'>Indique un número de fila a eliminar:</div>
+							<div class='form-input-quote'>Indique el <span class='tableID'>".$tableNames_array[0]."</span> de la fila a eliminar:</div>
 							<br>
 							<input type='text' name='tableID' class='form-input-col' placeholder='Número de fila'>
 							<input type='submit' name='send-id-button' value='Seleccionar fila' id='send-cols-button'>
@@ -148,12 +167,33 @@
 				}
 
 				if ($_SESSION['deleteRowDisplay'] == 2) {
-						echo "<div class='confirmQuote'>La fila número ".$_SESSION['tableID']." contiene los siguientes campos:</div>";
+						echo "<div class='confirmQuote'>La fila con ".lcfirst($tableNames_array[0]).": <span class='rowNumber'>".$_SESSION['tableID']."</span> contiene los siguientes campos:</div>";
 
-						$select_query = "SELECT * FROM ".$_SESSION['tableRow']." WHERE id=".$_SESSION['tableID'].";";
+						$select_query = "SELECT * FROM ".$_SESSION['tableRow']." WHERE ".$tableNames_array[0]."='".$_SESSION['tableID']."';";
 						$select_result = mysqli_query($UserDBConection, $select_query);
 
+						$tableNames_query = "
+
+							SELECT column_name
+							FROM information_schema.columns
+							WHERE  table_name = '".$_SESSION['tableRow']."'
+							AND table_schema = '".$UserDBName."'"
+
+						;
+
+						$tableNames_result = mysqli_query($UserDBConection, $tableNames_query);
+
+
+
 						echo "<table id='main-table'>";
+						echo "<tr class='column-row'>";
+						while ($columnArray = mysqli_fetch_assoc($tableNames_result)) {
+	    					foreach ($columnArray as $columnName) { 
+	    						echo "<th class='selected-column-field'>".$columnName."</th>";
+	    							  
+	    					}
+	    				}
+	    				echo "</tr>";
 
 						while ($selectedRowArray = mysqli_fetch_assoc($select_result)) {
 	    					echo "<tr class='row-row'>";
@@ -178,21 +218,10 @@
 
 						if (isset($_POST['confirmButton'])) {
 							mysqli_select_db($UserDBConection, $UserDBName);
-							$delete_query = "DELETE FROM " .$_SESSION['tableRow']." WHERE id=" .$_SESSION['tableID'].";";
+							$delete_query = "DELETE FROM " .$_SESSION['tableRow']." WHERE ".$tableNames_array[0]."='".$_SESSION['tableID']."';";
 							$delete_result = mysqli_query($UserDBConection, $delete_query);
 
-							$maxIncrement_query = "SELECT MAX(id) FROM " .$_SESSION['tableRow']. " ;";
-							$maxIncrement_result = mysqli_query($UserDBConection, $maxIncrement_query);
-
-							$alterIncrement_query = "ALTER TABLE id AUTO_INCREMENT = 1";
-							$alterIncrement_result = mysqli_query($UserDBConection, $alterIncrement_query);
-
-
-							if ($delete_result) {
-								echo "gud";
-							} else {
-								printf(mysqli_error($UserDBConection));
-							}
+							
 
 							$_SESSION['deleteRowDisplay'] = 1;
 							header("Location: ../HTML/deleteRow.php", TRUE, 301);
